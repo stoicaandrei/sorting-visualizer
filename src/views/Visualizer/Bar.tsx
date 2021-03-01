@@ -12,4 +12,4 @@ const Bar: React.FC<Props> = ({ width, height, color }) => {
   );
 };
 
-export default Bar;
+export default React.memo(Bar);
