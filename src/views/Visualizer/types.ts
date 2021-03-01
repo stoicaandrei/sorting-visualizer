@@ -5,3 +5,7 @@ export type SortingState = {
     color?: string;
   }[];
 };
+
+export type SortingFunction = (
+  array: number[]
+) => IterableIterator<SortingState>;
