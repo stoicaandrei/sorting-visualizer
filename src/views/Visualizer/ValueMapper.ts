@@ -1,11 +1,13 @@
+type Interval = [number, number];
+
 export default function ValueMapper(
-  low1: number,
-  high1: number,
-  low2: number,
-  high2: number
+  originalInterval: Interval,
+  targetInterval: Interval
 ) {
+  const [low1, high1] = originalInterval;
+  const [low2, high2] = targetInterval;
+
   return (value: number) => {
-    // return value;
     const val = low2 + ((value - low1) * (high2 - low2)) / (high1 - low1);
 
     return Math.round(val);

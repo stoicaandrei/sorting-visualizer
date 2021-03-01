@@ -19,7 +19,10 @@ const ArrayCanvas: React.FC<Props> = ({ array }) => {
   const maxVal = Math.max(...array);
   const bars = array.length;
 
-  const heightMapper = ValueMapper(minVal, maxVal, minBarHeight, canvasHeight);
+  const heightMapper = ValueMapper(
+    [minVal, maxVal],
+    [minBarHeight, canvasHeight]
+  );
   const barWidth = (canvasWidth - bars * gapWidth) / bars;
 
   return (
