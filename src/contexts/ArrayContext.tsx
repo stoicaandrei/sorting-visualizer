@@ -11,9 +11,11 @@ type ActionProps = unknown;
 const ArrayStateContext = React.createContext<StateProps>({} as any);
 const ArrayActionsContext = React.createContext<ActionProps>({} as any);
 
-const initialArray = generateArrayOfSize(30);
+const initialLength = 30;
+const initialArray = generateArrayOfSize(initialLength);
 
 const ArrayProvider: React.FC = ({ children }) => {
+  const [length, setLength] = useState(initialLength);
   const [array, setArray] = useState(initialArray);
 
   return (
