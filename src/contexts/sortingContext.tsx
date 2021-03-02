@@ -5,6 +5,7 @@ import selectionSort, {
 } from 'views/Visualizer/selectionSort';
 
 import { useInterval } from 'hooks';
+import { generateArrayOfSize } from '../utils';
 
 type ContextProps = {
   array: number[];
@@ -15,12 +16,12 @@ const SortingContext = React.createContext<ContextProps>({} as any);
 
 const SortingProvider: React.FC = ({ children }) => {
   const [displayRules, setDisplayRules] = useState(selectionSortRules);
-  const [array, setArray] = useState([2, 3, 1, 6, 5, 4]);
+  const [array, setArray] = useState(generateArrayOfSize(30));
   const [generator] = useState(selectionSort(array));
 
   const [points, setPoints] = useState([]);
 
-  const [frequency, setFrequency] = useState(2);
+  const [frequency, setFrequency] = useState(10);
 
   useInterval(() => {
     const { done, value: values } = generator.next();
