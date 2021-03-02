@@ -53,7 +53,7 @@ const useArrayState = () => {
 };
 
 const useArrayActions = () => {
-  const context = React.useContext(ArrayStateContext);
+  const context = React.useContext(ArrayActionsContext);
   if (context === undefined) {
     throw new Error('useArrayActions must be used within a ArrayProvider');
   }
