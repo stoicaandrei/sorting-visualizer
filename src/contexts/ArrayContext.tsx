@@ -8,6 +8,7 @@ type StateProps = {
 
 type ActionProps = {
   generateNewArray: () => void;
+  changeArrayLength: (arg0: number) => void;
 };
 
 const ArrayStateContext = React.createContext<StateProps>({} as any);
@@ -20,11 +21,14 @@ const ArrayProvider: React.FC = ({ children }) => {
   const [length, setLength] = useState(initialLength);
   const [array, setArray] = useState(initialArray);
 
+  const changeArrayLength = (n: number) => setLength(n);
   const generateNewArray = () => setArray(generateArrayOfSize(length));
 
   return (
     <ArrayStateContext.Provider value={{ array }}>
-      <ArrayActionsContext.Provider value={{ generateNewArray }}>
+      <ArrayActionsContext.Provider
+        value={{ changeArrayLength, generateNewArray }}
+      >
         {children}
       </ArrayActionsContext.Provider>
     </ArrayStateContext.Provider>
