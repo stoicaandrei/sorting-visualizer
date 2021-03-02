@@ -16,7 +16,7 @@ const selectionSort: SortingFunction = function* (array) {
         min = j;
       }
 
-      yield { array, i, j };
+      yield { i, j };
     }
 
     if (min != i) {

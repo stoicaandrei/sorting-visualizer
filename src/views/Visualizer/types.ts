@@ -1,4 +1,4 @@
-export type SortingState = { array: number[]; [key: string]: unknown };
+export type SortingState = { [key: string]: number };
 
 export type SortingFunction = (
   array: number[]
