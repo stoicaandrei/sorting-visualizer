@@ -15,7 +15,7 @@ const bubbleSort: SortingFunction = function* (arr) {
         swapped = true;
       }
 
-      yield { i, j };
+      yield [ j, j+1 ];
     }
 
     if (swapped == false) break;

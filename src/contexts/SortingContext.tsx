@@ -30,7 +30,7 @@ const SortingProvider: React.FC = ({ children }) => {
 
     const returnedPoints = next.value;
     const points: SortingPoints = {};
-    Object.values(returnedPoints).forEach((point) => {
+    returnedPoints.forEach((point) => {
       points[point] = 'orange';
     });
     setPoints(points);
