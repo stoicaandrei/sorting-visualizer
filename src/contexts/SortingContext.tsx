@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { SortingPoints } from 'types';
 
-import selectionSort from 'algoritms/selectionSort';
+import { bubbleSort as sortingAlgorithm } from 'algoritms';
 
 import { useInterval } from 'hooks';
 import { useArrayState } from './ArrayContext';
@@ -17,7 +17,7 @@ const SortingStateContext = React.createContext<State | undefined>(undefined);
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
 
-  const [generator] = useState(selectionSort(array));
+  const [generator] = useState(sortingAlgorithm(array));
 
   const [points, setPoints] = useState({});
 
