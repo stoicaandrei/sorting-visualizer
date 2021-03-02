@@ -2,10 +2,14 @@ import React from 'react';
 
 import { Visualizer } from './views';
 
+import { SortingProvider } from './contexts';
+
 function App() {
   return (
     <div className="App">
-      <Visualizer />
+      <SortingProvider>
+        <Visualizer />
+      </SortingProvider>
     </div>
   );
 }

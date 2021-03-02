@@ -1,9 +1,15 @@
-import React  from 'react';
+import React from 'react';
+
+import { useSortingState } from 'contexts';
+
+import ArrayCanvas from './ArrayCanvas';
 
 const Visualizer: React.FC = () => {
+  const { array, points } = useSortingState();
+
   return (
     <div>
-      Visualizer
+      <ArrayCanvas array={array} points={points} />
     </div>
   );
 };
