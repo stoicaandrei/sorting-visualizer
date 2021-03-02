@@ -1,24 +1,29 @@
 import { SortingFunction } from './types';
 
-const selectionSort: SortingFunction = function* (inputArr) {
-  const n = inputArr.length;
+export const displayRules = [
+  { key: 'i', color: 'red' },
+  { key: 'j', color: 'green' },
+];
+
+const selectionSort: SortingFunction = function* (array) {
+  const n = array.length;
 
   for (let i = 0; i < n; i++) {
     // Finding the smallest number in the subarray
     let min = i;
     for (let j = i + 1; j < n; j++) {
-      if (inputArr[j] < inputArr[min]) {
+      if (array[j] < array[min]) {
         min = j;
       }
 
-      yield { array: inputArr, points: [{ position: i }] };
+      yield { array, i, j };
     }
 
     if (min != i) {
       // Swapping the elements
-      const tmp = inputArr[i];
-      inputArr[i] = inputArr[min];
-      inputArr[min] = tmp;
+      const tmp = array[i];
+      array[i] = array[min];
+      array[min] = tmp;
     }
   }
 };
