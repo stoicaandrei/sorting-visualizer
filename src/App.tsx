@@ -2,14 +2,16 @@ import React from 'react';
 
 import { Visualizer } from './views';
 
-import { SortingProvider } from './contexts';
+import { SortingProvider, ArrayProvider } from './contexts';
 
 function App() {
   return (
     <div className="App">
-      <SortingProvider>
-        <Visualizer />
-      </SortingProvider>
+      <ArrayProvider>
+        <SortingProvider>
+          <Visualizer />
+        </SortingProvider>
+      </ArrayProvider>
     </div>
   );
 }
