@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-import selectionSort, {
-  displayRules as selectionSortRules,
-} from 'algoritms/selectionSort';
+import selectionSort from 'algoritms/selectionSort';
 
 import { useInterval } from 'hooks';
 import { useArrayState } from './ArrayContext';
@@ -17,7 +15,6 @@ const SortingContext = React.createContext<ContextProps>({} as any);
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
 
-  const [displayRules, setDisplayRules] = useState(selectionSortRules);
   const [generator] = useState(selectionSort(array));
 
   const [points, setPoints] = useState([]);
@@ -25,16 +22,14 @@ const SortingProvider: React.FC = ({ children }) => {
   const [frequency, setFrequency] = useState(10);
 
   useInterval(() => {
-    const { done, value: values } = generator.next();
+    const next = generator.next();
 
-    if (done) return setFrequency(0);
+    if (next.done) return setFrequency(0);
 
+    const returnedPoints = next.value;
     const points: any = {};
-    displayRules.forEach((rule) => {
-      const { key, color } = rule;
-      const point = values[key];
-
-      points[point] = color;
+    Object.values(returnedPoints).forEach((point) => {
+      points[point] = 'orange';
     });
     setPoints(points);
   }, 1000 / frequency);
