@@ -1,10 +1,5 @@
 import { SortingFunction } from '../views/Visualizer/types';
 
-export const displayRules = [
-  { key: 'i', color: 'red' },
-  { key: 'j', color: 'green' },
-];
-
 const selectionSort: SortingFunction = function* (array) {
   const n = array.length;
 
