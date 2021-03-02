@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 import { generateArrayOfSize } from 'utils';
 
-type StateProps = {};
+type StateProps = {
+  array: number[];
+};
 
-type ActionProps = {};
+type ActionProps = unknown;
 
 const ArrayStateContext = React.createContext<StateProps>({} as any);
 const ArrayActionsContext = React.createContext<ActionProps>({} as any);
