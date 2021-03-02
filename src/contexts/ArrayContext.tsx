@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { generateArrayOfSize } from 'utils';
+
 type StateProps = {};
 
 type ActionProps = {};
@@ -7,9 +9,13 @@ type ActionProps = {};
 const ArrayStateContext = React.createContext<StateProps>({} as any);
 const ArrayActionsContext = React.createContext<ActionProps>({} as any);
 
+const initialArray = generateArrayOfSize(30);
+
 const ArrayProvider: React.FC = ({ children }) => {
+  const [array, setArray] = useState(initialArray);
+
   return (
-    <ArrayStateContext.Provider value={{}}>
+    <ArrayStateContext.Provider value={{ array }}>
       <ArrayActionsContext.Provider value={{}}>
         {children}
       </ArrayActionsContext.Provider>
