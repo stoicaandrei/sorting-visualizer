@@ -1,13 +1,13 @@
 import { SortingFunction } from 'types';
 
-const selectionSort: SortingFunction = function* (array) {
-  const n = array.length;
+const selectionSort: SortingFunction = function* (arr) {
+  const n = arr.length;
 
   for (let i = 0; i < n; i++) {
     // Finding the smallest number in the subarray
     let min = i;
     for (let j = i + 1; j < n; j++) {
-      if (array[j] < array[min]) {
+      if (arr[j] < arr[min]) {
         min = j;
       }
 
@@ -16,9 +16,9 @@ const selectionSort: SortingFunction = function* (array) {
 
     if (min != i) {
       // Swapping the elements
-      const tmp = array[i];
-      array[i] = array[min];
-      array[min] = tmp;
+      const tmp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = tmp;
     }
   }
 };
