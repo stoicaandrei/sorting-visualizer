@@ -7,12 +7,12 @@ import selectionSort from 'algoritms/selectionSort';
 import { useInterval } from 'hooks';
 import { useArrayState } from './ArrayContext';
 
-type ContextProps = {
+type State = {
   array: number[];
   points: SortingPoints;
 };
 
-const SortingContext = React.createContext<ContextProps | undefined>(undefined);
+const SortingContext = React.createContext<State | undefined>(undefined);
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
