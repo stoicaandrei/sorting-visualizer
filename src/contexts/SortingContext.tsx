@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { SortingPoints } from '../views/Visualizer/types';
+import { SortingPoints } from 'types';
 
 import selectionSort from 'algoritms/selectionSort';
 

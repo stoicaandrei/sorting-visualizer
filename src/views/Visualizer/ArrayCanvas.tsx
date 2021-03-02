@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SortingPoints } from './types';
+import { SortingPoints } from 'types';
 
 import Bar from './Bar';
 

@@ -1,4 +1,4 @@
-import { SortingFunction } from '../views/Visualizer/types';
+import { SortingFunction } from 'types';
 
 const selectionSort: SortingFunction = function* (array) {
   const n = array.length;
