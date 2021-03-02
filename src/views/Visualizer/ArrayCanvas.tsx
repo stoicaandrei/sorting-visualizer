@@ -4,7 +4,7 @@ import { SortingPoints } from './types';
 
 import Bar from './Bar';
 
-import ValueMapper from './ValueMapper';
+import { ValueMapper } from 'utils';
 
 type Props = {
   array: number[];
