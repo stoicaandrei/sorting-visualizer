@@ -1,5 +1,6 @@
 {
   "name": "sorting-visualizer",
+  "homepage": "https://stoica.dev/sorting-visualizer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
