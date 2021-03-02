@@ -1,14 +1,17 @@
 import React from 'react';
 
+import { SortingPoints } from './types';
+
 import Bar from './Bar';
 
 import ValueMapper from './ValueMapper';
 
 type Props = {
   array: number[];
+  points: SortingPoints;
 };
 
-const ArrayCanvas: React.FC<Props> = ({ array }) => {
+const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
   const canvasHeight = 200;
   const canvasWidth = 400;
   const gapWidth = 20;
@@ -34,12 +37,12 @@ const ArrayCanvas: React.FC<Props> = ({ array }) => {
         width: canvasWidth,
       }}
     >
-      {array.map((nr) => (
+      {array.map((nr, index) => (
         <Bar
           key={nr}
           height={heightMapper(nr)}
           width={barWidth}
-          color={barColor}
+          color={points[index] || barColor}
         />
       ))}
     </div>
