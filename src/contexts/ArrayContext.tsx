@@ -12,8 +12,12 @@ type ActionProps = {
   replaceArray: (args0: number[]) => void;
 };
 
-const ArrayStateContext = React.createContext<StateProps>({} as any);
-const ArrayActionsContext = React.createContext<ActionProps>({} as any);
+const ArrayStateContext = React.createContext<StateProps | undefined>(
+  undefined
+);
+const ArrayActionsContext = React.createContext<ActionProps | undefined>(
+  undefined
+);
 
 const initialLength = 30;
 const initialArray = generateArrayOfLength(initialLength);
@@ -44,11 +48,21 @@ const ArrayProvider: React.FC = ({ children }) => {
 };
 
 const useArrayState = () => {
-  return React.useContext(ArrayStateContext);
+  const context = React.useContext(ArrayStateContext);
+  if (context === undefined) {
+    throw new Error('useArrayState must be used within a ArrayProvider');
+  }
+
+  return context;
 };
 
 const useArrayActions = () => {
-  return React.useContext(ArrayActionsContext);
+  const context = React.useContext(ArrayStateContext);
+  if (context === undefined) {
+    throw new Error('useArrayActions must be used within a ArrayProvider');
+  }
+
+  return context;
 };
 
 export { useArrayState, useArrayActions, ArrayProvider };
