@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { generateArrayOfSize } from 'utils';
+import { generateArrayOfLength } from 'utils';
 
 type StateProps = {
   array: number[];
@@ -15,14 +15,14 @@ const ArrayStateContext = React.createContext<StateProps>({} as any);
 const ArrayActionsContext = React.createContext<ActionProps>({} as any);
 
 const initialLength = 30;
-const initialArray = generateArrayOfSize(initialLength);
+const initialArray = generateArrayOfLength(initialLength);
 
 const ArrayProvider: React.FC = ({ children }) => {
   const [length, setLength] = useState(initialLength);
   const [array, setArray] = useState(initialArray);
 
   const changeArrayLength = (n: number) => setLength(n);
-  const generateNewArray = () => setArray(generateArrayOfSize(length));
+  const generateNewArray = () => setArray(generateArrayOfLength(length));
 
   return (
     <ArrayStateContext.Provider value={{ array }}>
