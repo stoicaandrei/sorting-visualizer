@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import selectionSort, {
   displayRules as selectionSortRules,
-} from 'views/Visualizer/selectionSort';
+} from 'algoritms/selectionSort';
 
 import { useInterval } from 'hooks';
 import { useArrayState } from './ArrayContext';

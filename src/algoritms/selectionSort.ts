@@ -1,4 +1,4 @@
-import { SortingFunction } from './types';
+import { SortingFunction } from '../views/Visualizer/types';
 
 export const displayRules = [
   { key: 'i', color: 'red' },
