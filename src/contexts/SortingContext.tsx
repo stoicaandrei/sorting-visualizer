@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { SortingPoints } from '../views/Visualizer/types';
+
 import selectionSort from 'algoritms/selectionSort';
 
 import { useInterval } from 'hooks';
@@ -7,17 +9,17 @@ import { useArrayState } from './ArrayContext';
 
 type ContextProps = {
   array: number[];
-  points: any;
+  points: SortingPoints;
 };
 
-const SortingContext = React.createContext<ContextProps>({} as any);
+const SortingContext = React.createContext<ContextProps | undefined>(undefined);
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
 
   const [generator] = useState(selectionSort(array));
 
-  const [points, setPoints] = useState([]);
+  const [points, setPoints] = useState({});
 
   const [frequency, setFrequency] = useState(10);
 
@@ -27,7 +29,7 @@ const SortingProvider: React.FC = ({ children }) => {
     if (next.done) return setFrequency(0);
 
     const returnedPoints = next.value;
-    const points: any = {};
+    const points: SortingPoints = {};
     Object.values(returnedPoints).forEach((point) => {
       points[point] = 'orange';
     });
@@ -42,7 +44,12 @@ const SortingProvider: React.FC = ({ children }) => {
 };
 
 const useSortingState = () => {
-  return React.useContext(SortingContext);
+  const context = React.useContext(SortingContext);
+  if (context === undefined) {
+    throw new Error('useSortingState must be used within a SortingProvider');
+  }
+
+  return context;
 };
 
 export { useSortingState, SortingProvider };
