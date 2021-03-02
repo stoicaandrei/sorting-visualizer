@@ -12,7 +12,7 @@ type State = {
   points: SortingPoints;
 };
 
-const SortingContext = React.createContext<State | undefined>(undefined);
+const SortingStateContext = React.createContext<State | undefined>(undefined);
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
@@ -37,14 +37,14 @@ const SortingProvider: React.FC = ({ children }) => {
   }, 1000 / frequency);
 
   return (
-    <SortingContext.Provider value={{ array, points }}>
+    <SortingStateContext.Provider value={{ array, points }}>
       {children}
-    </SortingContext.Provider>
+    </SortingStateContext.Provider>
   );
 };
 
 const useSortingState = () => {
-  const context = React.useContext(SortingContext);
+  const context = React.useContext(SortingStateContext);
   if (context === undefined) {
     throw new Error('useSortingState must be used within a SortingProvider');
   }
