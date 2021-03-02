@@ -2,22 +2,18 @@ import React, { useState } from 'react';
 
 import { generateArrayOfLength } from 'utils';
 
-type StateProps = {
+type State = {
   array: number[];
 };
 
-type ActionProps = {
+type Actions = {
   generateNewArray: () => void;
   changeArrayLength: (arg0: number) => void;
   replaceArray: (args0: number[]) => void;
 };
 
-const ArrayStateContext = React.createContext<StateProps | undefined>(
-  undefined
-);
-const ArrayActionsContext = React.createContext<ActionProps | undefined>(
-  undefined
-);
+const ArrayStateContext = React.createContext<State | undefined>(undefined);
+const ArrayActionsContext = React.createContext<Actions | undefined>(undefined);
 
 const initialLength = 30;
 const initialArray = generateArrayOfLength(initialLength);
