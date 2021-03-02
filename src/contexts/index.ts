@@ -1,1 +1,1 @@
-export * from './sortingContext';
+export * from './SortingContext';
