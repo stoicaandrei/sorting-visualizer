@@ -19,6 +19,7 @@ const initialLength = 30;
 const initialArray = generateArrayOfLength(initialLength);
 
 const ArrayProvider: React.FC = ({ children }) => {
+  // The length is used for generating new arrays
   const [length, setLength] = useState(initialLength);
   const [array, setArray] = useState(initialArray);
 
@@ -26,6 +27,7 @@ const ArrayProvider: React.FC = ({ children }) => {
 
   const generateNewArray = () => setArray(generateArrayOfLength(length));
   const replaceArray = (arr: number[]) => {
+    // Replaces the array with a custom one
     setArray(arr);
     setLength(arr.length);
   };
