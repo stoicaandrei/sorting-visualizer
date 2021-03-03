@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import { SortingPoints } from 'types';
 
 import { bubbleSort as sortingAlgorithm } from 'algoritms';
+import { colorMapToSortingPoints } from 'utils';
 
 import { useInterval } from 'hooks';
-import { useArrayState } from './ArrayContext';
+import { useArrayState } from 'contexts';
 
 type State = {
   array: number[];
@@ -28,11 +29,8 @@ const SortingProvider: React.FC = ({ children }) => {
 
     if (next.done) return setFrequency(0);
 
-    const returnedPoints = next.value;
-    const points: SortingPoints = {};
-    returnedPoints.forEach((point) => {
-      points[point] = 'orange';
-    });
+    const colorMap = next.value;
+    const points = colorMapToSortingPoints(colorMap);
     setPoints(points);
   }, 1000 / frequency);
 
