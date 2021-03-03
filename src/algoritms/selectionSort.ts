@@ -1,5 +1,7 @@
 import { SortingFunction } from 'types';
 
+import { pointsToColorMap as points } from 'utils';
+
 const selectionSort: SortingFunction = function* (arr) {
   const n = arr.length;
 
@@ -11,7 +13,7 @@ const selectionSort: SortingFunction = function* (arr) {
         min = j;
       }
 
-      yield [i, j];
+      yield points([i, j]);
     }
 
     if (min != i) {
