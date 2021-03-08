@@ -20,16 +20,16 @@ const initialArray = generateArrayOfLength(initialLength);
 
 const ArrayProvider: React.FC = ({ children }) => {
   // The length is used for generating new arrays
-  const [length, setLength] = useState(initialLength);
+  const [arrayLength, setArrayLength] = useState(initialLength);
   const [array, setArray] = useState(initialArray);
 
-  const changeArrayLength = (n: number) => setLength(n);
+  const changeArrayLength = (n: number) => setArrayLength(n);
 
-  const generateNewArray = () => setArray(generateArrayOfLength(length));
+  const generateNewArray = () => setArray(generateArrayOfLength(arrayLength));
   const replaceArray = (arr: number[]) => {
     // Replaces the array with a custom one
     setArray(arr);
-    setLength(arr.length);
+    setArrayLength(arr.length);
   };
 
   return (
