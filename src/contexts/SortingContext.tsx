@@ -22,7 +22,7 @@ const SortingProvider: React.FC = ({ children }) => {
 
   const [points, setPoints] = useState({});
 
-  const [frequency, setFrequency] = useState(10);
+  const [frequency, setFrequency] = useState(30);
 
   useInterval(() => {
     const next = generator.next();

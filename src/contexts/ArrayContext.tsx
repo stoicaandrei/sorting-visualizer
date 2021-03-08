@@ -15,7 +15,7 @@ type Actions = {
 const ArrayStateContext = React.createContext<State | undefined>(undefined);
 const ArrayActionsContext = React.createContext<Actions | undefined>(undefined);
 
-const initialLength = 30;
+const initialLength = 100;
 const initialArray = generateArrayOfLength(initialLength);
 
 const ArrayProvider: React.FC = ({ children }) => {
