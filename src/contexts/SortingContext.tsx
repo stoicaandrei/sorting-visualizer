@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { SortingPoints } from 'types';
 
-import { bubbleSort as sortingAlgorithm } from 'algoritms';
+import { mergeSort as sortingAlgorithm } from 'algoritms';
 import { colorMapToSortingPoints } from 'utils';
 
 import { useInterval } from 'hooks';
