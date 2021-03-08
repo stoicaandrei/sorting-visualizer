@@ -3,43 +3,42 @@ import { pointsToColorMap as points } from 'utils';
 
 function* mergeArray(
   arr: number[],
-  l: number,
-  m: number,
-  r: number
+  start: number,
+  mid: number,
+  end: number
 ): ColorMapGenerator {
-  let k = l;
-  let a1 = l;
-  let a2 = m + 1;
+  let start2 = mid + 1;
 
-  const b = Array(arr.length);
+  // If the direct merge is already sorted
+  if (arr[mid] <= arr[start2]) {
+    return;
+  }
 
-  while (a1 <= m && a2 <= r) {
-    if (arr[a1] <= arr[a2]) {
-      b[k] = arr[a1];
-      a1++;
+  // Two pointers to maintain start
+  // of both arrays to merge
+  while (start <= mid && start2 <= end) {
+    // If element 1 is in right place
+    if (arr[start] <= arr[start2]) {
+      start++;
     } else {
-      b[k] = arr[a2];
-      a2++;
+      const value = arr[start2];
+      let index = start2;
+
+      // Shift all the elements between element 1
+      // element 2, right by 1.
+      while (index != start) {
+        arr[index] = arr[index - 1];
+        index--;
+      }
+      arr[start] = value;
+
+      // Update all the pointers
+      start++;
+      mid++;
+      start2++;
+      yield points([start, mid]);
     }
-    k++;
-    yield points([a1, a2]);
   }
-
-  while (a1 <= m) {
-    b[k] = arr[a1];
-    a1++;
-    k++;
-    yield points([a1, a2]);
-  }
-
-  while (a2 <= r) {
-    b[k] = arr[a2];
-    a2++;
-    k++;
-    yield points([a1, a2]);
-  }
-
-  for (let i = l; i <= r; i++) arr[i] = b[i];
 }
 
 function* sort(arr: number[], l: number, r: number): ColorMapGenerator {
