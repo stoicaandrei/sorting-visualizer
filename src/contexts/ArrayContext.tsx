@@ -24,9 +24,14 @@ const ArrayProvider: React.FC = ({ children }) => {
   const [arrayLength, setArrayLength] = useState(initialLength);
   const [array, setArray] = useState(initialArray);
 
-  const changeArrayLength = (n: number) => setArrayLength(n);
+  const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
-  const generateNewArray = () => setArray(generateArrayOfLength(arrayLength));
+  const changeArrayLength = (n: number) => {
+    setArrayLength(n);
+    generateArray(n);
+  };
+
+  const generateNewArray = () => generateArray(arrayLength);
   const replaceArray = (arr: number[]) => {
     // Replaces the array with a custom one
     setArray(arr);
