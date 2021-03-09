@@ -1,7 +1,13 @@
 import React from 'react';
 
+import GenerateArrayButton from './GenerateArrayButton';
+
 const ArrayActions: React.FC = () => {
-  return <div>ArrayActions</div>;
+  return (
+    <div>
+      <GenerateArrayButton />
+    </div>
+  );
 };
 
 export default ArrayActions;
