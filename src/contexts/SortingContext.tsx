@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { SortingPoints } from 'types';
 
@@ -18,7 +18,11 @@ const SortingStateContext = React.createContext<State | undefined>(undefined);
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
 
-  const [generator] = useState(sortingAlgorithm(array));
+  const [generator, setGenerator] = useState(sortingAlgorithm(array));
+
+  useEffect(() => {
+    setGenerator(sortingAlgorithm(array));
+  }, [array]);
 
   const [points, setPoints] = useState({});
 
