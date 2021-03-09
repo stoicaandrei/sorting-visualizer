@@ -16,13 +16,13 @@ type Actions = {
 const ArrayStateContext = React.createContext<State | undefined>(undefined);
 const ArrayActionsContext = React.createContext<Actions | undefined>(undefined);
 
-const initialLength = 500;
-const initialArray = generateArrayOfLength(initialLength);
+const INITIAL_LENGTH = 300;
+const INITIAL_ARRAY = generateArrayOfLength(INITIAL_LENGTH);
 
 const ArrayProvider: React.FC = ({ children }) => {
   // The length is used for generating new arrays
-  const [arrayLength, setArrayLength] = useState(initialLength);
-  const [array, setArray] = useState(initialArray);
+  const [arrayLength, setArrayLength] = useState(INITIAL_LENGTH);
+  const [array, setArray] = useState(INITIAL_ARRAY);
 
   const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
