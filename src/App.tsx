@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ArrayActions, Visualizer } from './views';
+import { ArrayActions, SortingActions, Visualizer } from './views';
 
 import { SortingProvider, ArrayProvider } from './contexts';
 
@@ -11,6 +11,7 @@ function App() {
         <SortingProvider>
           <Visualizer />
           <ArrayActions />
+          <SortingActions />
         </SortingProvider>
       </ArrayProvider>
     </div>
