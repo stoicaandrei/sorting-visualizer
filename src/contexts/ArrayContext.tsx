@@ -4,6 +4,7 @@ import { generateArrayOfLength } from 'utils';
 
 type State = {
   array: number[];
+  arrayLength: number;
 };
 
 type Actions = {
@@ -33,7 +34,7 @@ const ArrayProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <ArrayStateContext.Provider value={{ array }}>
+    <ArrayStateContext.Provider value={{ array, arrayLength }}>
       <ArrayActionsContext.Provider
         value={{ changeArrayLength, generateNewArray, replaceArray }}
       >
