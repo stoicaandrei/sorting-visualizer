@@ -12,8 +12,8 @@ type Props = {
 };
 
 const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
-  const canvasHeight = 400;
-  const canvasWidth = 600;
+  const canvasHeight = 600;
+  const canvasWidth = 1200;
   const gapWidth = 1;
   const minBarHeight = 10;
   const barColor = 'blue';
