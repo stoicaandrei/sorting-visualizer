@@ -31,7 +31,7 @@ const SortingProvider: React.FC = ({ children }) => {
   useInterval(() => {
     const next = generator.next();
 
-    if (next.done) return setFrequency(0);
+    if (next.done) return;
 
     const colorMap = next.value;
     const points = colorMapToSortingPoints(colorMap);
