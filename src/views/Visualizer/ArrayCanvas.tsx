@@ -30,6 +30,7 @@ const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
 
   return (
     <div
+      className="visualizer-canvas"
       style={{
         display: 'flex',
         justifyContent: 'space-between',
