@@ -7,7 +7,8 @@ const ArrayActions: React.FC = () => {
   return (
     <div>
       <GenerateArrayButton />
-      <ChangeArrayLengthInput />
+      <br />
+      Array Length: <ChangeArrayLengthInput />
     </div>
   );
 };
