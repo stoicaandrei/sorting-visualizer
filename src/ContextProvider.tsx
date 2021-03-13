@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { SortingProvider, ArrayProvider } from './contexts';
+import { SortingProvider, ArrayProvider, AlgorithmProvider } from './contexts';
 
 const ContextProvider: React.FC = ({ children }) => {
   return (
     <ArrayProvider>
-      <SortingProvider>{children}</SortingProvider>
+      <AlgorithmProvider>
+        <SortingProvider>{children}</SortingProvider>
+      </AlgorithmProvider>
     </ArrayProvider>
   );
 };
