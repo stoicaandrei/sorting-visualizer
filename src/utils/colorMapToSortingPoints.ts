@@ -1,7 +1,7 @@
 import { ColorMap, SortingPoints } from 'types';
 
 const colorMapToSortingPoints = (colorMap: ColorMap): SortingPoints => {
-  const result: SortingPoints = {};
+  const result = {} as SortingPoints;
 
   Object.entries(colorMap).forEach((entry) => {
     const [color, points] = entry;

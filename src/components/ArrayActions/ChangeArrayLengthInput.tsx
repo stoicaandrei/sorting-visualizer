@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useArrayActions, useArrayState } from 'contexts';
 
@@ -7,16 +7,14 @@ const ChangeArrayLengthInput: React.FC = () => {
   const { changeArrayLength } = useArrayActions();
 
   return (
-    <div>
-      <input
-        type="number"
-        value={arrayLength}
-        onChange={(e) => {
-          const length = parseInt(e.target.value);
-          changeArrayLength(length);
-        }}
-      />
-    </div>
+    <input
+      type="number"
+      value={arrayLength}
+      onChange={(e) => {
+        const length = parseInt(e.target.value);
+        changeArrayLength(length);
+      }}
+    />
   );
 };
 

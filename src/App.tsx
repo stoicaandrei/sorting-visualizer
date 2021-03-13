@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ArrayActions, SortingActions, Visualizer } from './views';
+import { ArrayActions, SortingActions, Visualizer } from './components';
 
 import { SortingProvider, ArrayProvider } from './contexts';
 

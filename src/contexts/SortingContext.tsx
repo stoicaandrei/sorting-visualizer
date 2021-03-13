@@ -26,9 +26,9 @@ const INITIAL_FREQUENCY = 60;
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
-  const [generator, setGenerator] = useState(sortingAlgorithm(array));
+  const [sortingSteps, setSortingSteps] = useState(sortingAlgorithm(array));
   useEffect(() => {
-    setGenerator(sortingAlgorithm(array));
+    setSortingSteps(sortingAlgorithm(array));
   }, [array]);
 
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
@@ -36,7 +36,7 @@ const SortingProvider: React.FC = ({ children }) => {
 
   const [points, setPoints] = useState({});
   useInterval(() => {
-    const next = generator.next();
+    const next = sortingSteps.next();
 
     if (next.done) return;
 
