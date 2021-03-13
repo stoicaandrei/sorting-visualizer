@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { ArrayActions, SortingActions, Visualizer } from './components';
+import {
+  ArrayActions,
+  SortingActions,
+  Visualizer,
+  AlgorithmActions,
+} from './components';
 
 function App() {
   return (
@@ -8,6 +13,7 @@ function App() {
       <Visualizer />
       <ArrayActions />
       <SortingActions />
+      <AlgorithmActions />
     </div>
   );
 }
