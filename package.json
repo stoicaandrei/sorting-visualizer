@@ -54,12 +54,14 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "5.0.2",
+    "prismjs": "^1.23.0",
     "prompts": "2.4.0",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.3",
     "react-dom": "^17.0.1",
     "react-refresh": "^0.8.3",
+    "react-simple-code-editor": "^0.11.0",
     "resolve": "1.18.1",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "^10.0.5",
@@ -101,6 +103,7 @@
     ]
   },
   "devDependencies": {
+    "@types/prismjs": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.21.0",
