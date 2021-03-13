@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import { SortingPoints } from 'types';
 
-import { mergeSort as sortingAlgorithm } from 'algoritms';
 import { colorMapToSortingPoints } from 'utils';
 
 import { useInterval } from 'hooks';
-import { useArrayState } from 'contexts';
+import { useArrayState, useAlgorithmState } from 'contexts';
 
 type State = {
   array: number[];
@@ -26,9 +25,11 @@ const INITIAL_FREQUENCY = 60;
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
-  const [sortingSteps, setSortingSteps] = useState(sortingAlgorithm(array));
+  const {algorithm} = useAlgorithmState();
+  const [sortingSteps, setSortingSteps] = useState(algorithm(array));
+
   useEffect(() => {
-    setSortingSteps(sortingAlgorithm(array));
+    setSortingSteps(algorithm(array));
   }, [array]);
 
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
