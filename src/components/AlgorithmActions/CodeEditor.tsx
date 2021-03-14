@@ -7,15 +7,14 @@ import 'prismjs/components/prism-javascript';
 
 type Props = {
   value: string;
+  onChange: (arg0: string) => void;
 };
 
-const CodeEditor: React.FC<Props> = ({ value }) => {
-  const [code, setCode] = useState(value);
-
+const CodeEditor: React.FC<Props> = ({ value, onChange }) => {
   return (
     <Editor
-      value={code}
-      onValueChange={setCode}
+      value={value}
+      onValueChange={onChange}
       highlight={(code) => highlight(code, languages.js)}
       className="code-editor"
     />
