@@ -1,11 +1,11 @@
 import React from 'react';
 
-import CodeEditor from './CodeEditor';
+import AlgorithmEditor from './AlgorithmEditor';
 
 const AlgorithmActions: React.FC = () => {
   return (
     <div>
-      <CodeEditor value="console.log('Hello, World!');" />
+      <AlgorithmEditor />
     </div>
   );
 };
