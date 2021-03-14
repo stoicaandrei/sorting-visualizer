@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { mergeSort } from '../algoritms';
+import { mergeSort } from '../algorithms';
 import { SortingFunction } from '../types';
 
 type State = {
