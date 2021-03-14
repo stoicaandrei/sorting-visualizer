@@ -1,11 +1,5 @@
-import { ColorMapGenerator, SortingFunction } from '../types';
-
-function* mergeArray(
-  arr: number[],
-  start: number,
-  mid: number,
-  end: number
-): ColorMapGenerator {
+const mergeSort = `
+function* mergeArray(arr, start, mid, end) {
   let start2 = mid + 1;
 
   // If the direct merge is already sorted
@@ -40,7 +34,7 @@ function* mergeArray(
   }
 }
 
-function* sort(arr: number[], l: number, r: number): ColorMapGenerator {
+function* sort(arr, l, r) {
   if (l < r) {
     const m = Math.floor(l + (r - l) / 2);
 
@@ -51,8 +45,9 @@ function* sort(arr: number[], l: number, r: number): ColorMapGenerator {
   }
 }
 
-const mergeSort: SortingFunction = function* (arr) {
+sortingAlgorithm = function* (arr) {
   yield* sort(arr, 0, arr.length - 1);
 };
+`;
 
 export default mergeSort;

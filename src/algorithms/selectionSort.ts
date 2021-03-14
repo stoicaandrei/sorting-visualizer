@@ -1,6 +1,5 @@
-import { SortingFunction } from 'types';
-
-const selectionSort: SortingFunction = function* (arr) {
+const selectionSort = `
+sortingAlgorithm = function* (arr) {
   const n = arr.length;
 
   for (let i = 0; i < n; i++) {
@@ -22,5 +21,6 @@ const selectionSort: SortingFunction = function* (arr) {
     }
   }
 };
+`;
 
 export default selectionSort;
