@@ -4,9 +4,9 @@ const colorMapToSortingPoints = (colorMap: ColorMap): SortingPoints => {
   const result = {} as SortingPoints;
 
   Object.entries(colorMap).forEach((entry) => {
-    const [color, points] = entry;
+    const [key, point] = entry;
 
-    points.forEach((point) => (result[point] = color));
+    result[point] = 'red';
   });
 
   return result;

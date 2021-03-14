@@ -1,4 +1,4 @@
-export type ColorMap = { [key: string]: number[] };
+export type ColorMap = { [key: string]: number };
 
 export type ColorMapGenerator = IterableIterator<ColorMap>;
 

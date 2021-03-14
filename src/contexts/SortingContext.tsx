@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { SortingPoints } from 'types';
+import { ColorMapGenerator, SortingPoints } from 'types';
 
 import { colorMapToSortingPoints } from 'utils';
 
@@ -25,11 +25,14 @@ const INITIAL_FREQUENCY = 60;
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
-  const {algorithm} = useAlgorithmState();
-  const [sortingSteps, setSortingSteps] = useState(algorithm(array));
+  let { algorithm } = useAlgorithmState();
+
+  const [sortingSteps, setSortingSteps] = useState<
+    ColorMapGenerator | undefined
+  >();
 
   useEffect(() => {
-    setSortingSteps(algorithm(array));
+    setSortingSteps(algorithm ? algorithm(array) : undefined);
   }, [array]);
 
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
@@ -37,6 +40,8 @@ const SortingProvider: React.FC = ({ children }) => {
 
   const [points, setPoints] = useState({});
   useInterval(() => {
+    if (!sortingSteps) return;
+
     const next = sortingSteps.next();
 
     if (next.done) return;
@@ -44,7 +49,7 @@ const SortingProvider: React.FC = ({ children }) => {
     const colorMap = next.value;
     const points = colorMapToSortingPoints(colorMap);
     setPoints(points);
-  }, 1000 / frequency);
+  }, 1000 / (frequency * (sortingSteps ? 1 : 10000)));
 
   return (
     <SortingStateContext.Provider value={{ array, points }}>

@@ -1,5 +1,4 @@
 import { ColorMapGenerator, SortingFunction } from '../types';
-import { pointsToColorMap as points } from 'utils';
 
 function* mergeArray(
   arr: number[],
@@ -36,7 +35,7 @@ function* mergeArray(
       start++;
       mid++;
       start2++;
-      yield points([start, mid]);
+      yield { start, mid };
     }
   }
 }

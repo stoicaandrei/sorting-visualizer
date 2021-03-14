@@ -1,8 +1,5 @@
-import { SortingFunction } from 'types';
-
-import { pointsToColorMap as points } from 'utils';
-
-const bubbleSort: SortingFunction = function* (arr) {
+const bubbleSort = `
+sortingAlgorithm = function* (arr) {
   const n = arr.length;
   let swapped;
 
@@ -17,11 +14,12 @@ const bubbleSort: SortingFunction = function* (arr) {
         swapped = true;
       }
 
-      yield points({ red: i, green: [j, j + 1] });
+      yield {i, j1: j, j2: j+1};
     }
 
     if (swapped == false) break;
   }
 };
+`;
 
 export default bubbleSort;
