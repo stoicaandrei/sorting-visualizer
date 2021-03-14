@@ -4,10 +4,13 @@ import { mergeSort } from '../algoritms';
 import { SortingFunction } from '../types';
 
 type State = {
+  algorithmString: string;
   algorithm: SortingFunction;
 };
 
-type Actions = unknown;
+type Actions = {
+  setAlgorithmString: (arg0: string) => void;
+};
 
 const AlgorithmStateContext = React.createContext<State | undefined>(undefined);
 const AlgorithmActionsContext = React.createContext<Actions | undefined>(
@@ -15,11 +18,12 @@ const AlgorithmActionsContext = React.createContext<Actions | undefined>(
 );
 
 const AlgorithmProvider: React.FC = ({ children }) => {
+  const [algorithmString, setAlgorithmString] = useState('');
   const [algorithm] = useState(() => mergeSort);
 
   return (
-    <AlgorithmStateContext.Provider value={{ algorithm }}>
-      <AlgorithmActionsContext.Provider value={{}}>
+    <AlgorithmStateContext.Provider value={{ algorithm, algorithmString }}>
+      <AlgorithmActionsContext.Provider value={{ setAlgorithmString }}>
         {children}
       </AlgorithmActionsContext.Provider>
     </AlgorithmStateContext.Provider>
