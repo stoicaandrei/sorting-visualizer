@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 
-import { SortingFunction } from '../types';
+import * as algorithms from 'algorithms';
+import { SortingFunction } from 'types';
+
+type AlgorithmName = keyof typeof algorithms;
 
 type State = {
   algorithmString: string;
   algorithm?: SortingFunction;
+  algorithmNames: AlgorithmName[];
+  selectedAlgorithm?: AlgorithmName;
 };
 
 type Actions = {
   setAlgorithmString: (arg0: string) => void;
   compileAlgorithm: () => void;
+  selectAlgorithm: (arg0: AlgorithmName) => void;
 };
 
 const AlgorithmStateContext = React.createContext<State | undefined>(undefined);
@@ -17,9 +23,19 @@ const AlgorithmActionsContext = React.createContext<Actions | undefined>(
   undefined
 );
 
+const algorithmNames = Object.keys(algorithms) as AlgorithmName[];
+
 const AlgorithmProvider: React.FC = ({ children }) => {
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState<
+    AlgorithmName | undefined
+  >();
   const [algorithmString, setAlgorithmString] = useState('');
   const [algorithm, setAlgorithm] = useState<SortingFunction | undefined>();
+
+  const selectAlgorithm = (name: AlgorithmName) => {
+    setSelectedAlgorithm(name);
+    setAlgorithmString(algorithms[name]);
+  };
 
   const compileAlgorithm = () => {
     let sortingAlgorithm: SortingFunction;
@@ -28,9 +44,11 @@ const AlgorithmProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <AlgorithmStateContext.Provider value={{ algorithm, algorithmString }}>
+    <AlgorithmStateContext.Provider
+      value={{ algorithm, algorithmString, algorithmNames, selectedAlgorithm }}
+    >
       <AlgorithmActionsContext.Provider
-        value={{ setAlgorithmString, compileAlgorithm }}
+        value={{ setAlgorithmString, compileAlgorithm, selectAlgorithm }}
       >
         {children}
       </AlgorithmActionsContext.Provider>
