@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CodeEditor from './CodeEditor';
+import { CodeEditor } from 'components';
 
 import { useAlgorithmState, useAlgorithmActions } from 'contexts';
 

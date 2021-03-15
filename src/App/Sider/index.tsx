@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Layout } from 'antd';
 
-import { AlgorithmEditor, AlgorithmSelector } from 'components';
+import AlgorithmSelector from './AlgorithmSelector';
+import AlgorithmEditor from './AlgorithmEditor';
 
 const Sider: React.FC = () => {
   return (
