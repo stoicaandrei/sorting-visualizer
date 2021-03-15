@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Select } from 'antd';
+
 import { useAlgorithmState, useAlgorithmActions } from 'contexts';
 
 const AlgorithmSelector: React.FC = () => {
@@ -7,19 +9,13 @@ const AlgorithmSelector: React.FC = () => {
   const { selectAlgorithm } = useAlgorithmActions();
 
   return (
-    <select
-      value={selectedAlgorithm}
-      onChange={(e) => {
-        const value = e.target.value;
-        selectAlgorithm(value);
-      }}
-    >
+    <Select value={selectedAlgorithm} onChange={selectAlgorithm}>
       {algorithmNames.map((name) => (
-        <option value={name} key={name}>
+        <Select.Option value={name} key={name}>
           {name}
-        </option>
+        </Select.Option>
       ))}
-    </select>
+    </Select>
   );
 };
 
