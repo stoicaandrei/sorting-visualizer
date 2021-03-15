@@ -26,10 +26,10 @@ const AlgorithmActionsContext = React.createContext<Actions | undefined>(
 const algorithmNames = Object.keys(algorithms) as AlgorithmName[];
 
 const AlgorithmProvider: React.FC = ({ children }) => {
-  const [selectedAlgorithm, setSelectedAlgorithm] = useState<
-    AlgorithmName | undefined
-  >();
-  const [algorithmString, setAlgorithmString] = useState('');
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState<AlgorithmName>(
+    'mergeSort'
+  );
+  const [algorithmString, setAlgorithmString] = useState(algorithms.mergeSort);
   const [algorithm, setAlgorithm] = useState<SortingFunction | undefined>();
 
   const selectAlgorithm = (name: string) => {
