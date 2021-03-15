@@ -13,7 +13,6 @@ type Props = {
 
 const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
   const canvasHeight = 600;
-  const canvasWidth = 1200;
   const minBarHeight = 10;
   const barColor = 'blue';
 
@@ -30,7 +29,6 @@ const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
       className="visualizer-canvas"
       style={{
         height: canvasHeight,
-        width: canvasWidth,
       }}
     >
       {array.map((nr, index) => (
