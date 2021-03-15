@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Layout, Menu } from 'antd';
 
-
 import { useArrayActions, useArrayState, useAlgorithmActions } from 'contexts';
 
 const Header: React.FC = () => {
@@ -19,9 +18,8 @@ const Header: React.FC = () => {
             Generate New Array
           </Menu.Item>
 
-          <Menu.Item>Custom Array</Menu.Item>
-          <Menu.Item>Size</Menu.Item>
-          <Menu.Item>Speed</Menu.Item>
+          <Menu.Item disabled>Custom Array</Menu.Item>
+          <Menu.Item disabled>Speed & Size</Menu.Item>
         </>
       </Menu>
     </Layout.Header>
