@@ -10,7 +10,7 @@ const AlgorithmSelector: React.FC = () => {
     <select
       value={selectedAlgorithm}
       onChange={(e) => {
-        const value = e.target.value as any;
+        const value = e.target.value;
         selectAlgorithm(value);
       }}
     >
