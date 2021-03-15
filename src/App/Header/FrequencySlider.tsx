@@ -1,18 +1,19 @@
 import React from 'react';
 
+import { Slider } from 'antd';
+
 import { useSortingActions } from 'contexts';
 
 const FrequencySlider: React.FC = () => {
   const { changeFrequency } = useSortingActions();
 
   return (
-    <input
-      type="range"
+    <Slider
       min={1}
       max={120}
-      onChange={(e) => {
-        const value = parseInt(e.target.value);
-        changeFrequency(value);
+      style={{ width: 200 }}
+      onChange={(n: number) => {
+        changeFrequency(n);
       }}
     />
   );
