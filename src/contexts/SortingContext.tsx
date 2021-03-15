@@ -25,7 +25,7 @@ const INITIAL_FREQUENCY = 60;
 
 const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
-  let { algorithm } = useAlgorithmState();
+  const { algorithm } = useAlgorithmState();
 
   const [sortingSteps, setSortingSteps] = useState<
     ColorMapGenerator | undefined
@@ -33,7 +33,7 @@ const SortingProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     setSortingSteps(algorithm ? algorithm(array) : undefined);
-  }, [array]);
+  }, [array, algorithm]);
 
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
   const changeFrequency = (frequency: number) => setFrequency(frequency);
