@@ -5,6 +5,7 @@ import App from './App';
 import ContextProvider from './ContextProvider';
 import reportWebVitals from './reportWebVitals';
 
+import 'antd/dist/antd.css';
 import './styles/global.scss';
 
 ReactDOM.render(
