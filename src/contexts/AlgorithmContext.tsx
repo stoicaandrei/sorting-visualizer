@@ -15,7 +15,7 @@ type State = {
 type Actions = {
   setAlgorithmString: (arg0: string) => void;
   compileAlgorithm: () => void;
-  selectAlgorithm: (arg0: string) => void;
+  selectAlgorithm: (arg0: AlgorithmName) => void;
 };
 
 const AlgorithmStateContext = React.createContext<State | undefined>(undefined);
@@ -32,10 +32,9 @@ const AlgorithmProvider: React.FC = ({ children }) => {
   const [algorithmString, setAlgorithmString] = useState(algorithms.mergeSort);
   const [algorithm, setAlgorithm] = useState<SortingFunction | undefined>();
 
-  const selectAlgorithm = (name: string) => {
-    const trueName = name as AlgorithmName;
-    setSelectedAlgorithm(trueName);
-    setAlgorithmString(algorithms[trueName]);
+  const selectAlgorithm = (name: AlgorithmName) => {
+    setSelectedAlgorithm(name);
+    setAlgorithmString(algorithms[name]);
   };
 
   const compileAlgorithm = () => {
