@@ -3,9 +3,7 @@ import { ColorMap, SortingPoints } from 'types';
 const colorMapToSortingPoints = (colorMap: ColorMap): SortingPoints => {
   const result = {} as SortingPoints;
 
-  Object.entries(colorMap).forEach((entry) => {
-    const [key, point] = entry;
-
+  Object.values(colorMap).forEach((point) => {
     result[point] = 'red';
   });
 
