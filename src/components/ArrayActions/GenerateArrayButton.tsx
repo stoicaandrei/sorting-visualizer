@@ -1,11 +1,16 @@
 import React from 'react';
 
-import { useArrayActions } from 'contexts';
+import { useArrayActions, useArrayState } from 'contexts';
 
 const GenerateArrayButton: React.FC = () => {
-  const { generateNewArray } = useArrayActions();
+  const { arrayLength } = useArrayState();
+  const { generateArray } = useArrayActions();
 
-  return <button onClick={generateNewArray}>GenerateArrayButton</button>;
+  return (
+    <button onClick={() => generateArray(arrayLength)}>
+      GenerateArrayButton
+    </button>
+  );
 };
 
 export default GenerateArrayButton;

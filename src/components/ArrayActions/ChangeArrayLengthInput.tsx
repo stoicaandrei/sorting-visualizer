@@ -4,7 +4,7 @@ import { useArrayActions, useArrayState } from 'contexts';
 
 const ChangeArrayLengthInput: React.FC = () => {
   const { arrayLength } = useArrayState();
-  const { changeArrayLength } = useArrayActions();
+  const { setArrayLength } = useArrayActions();
 
   return (
     <input
@@ -12,7 +12,7 @@ const ChangeArrayLengthInput: React.FC = () => {
       value={arrayLength}
       onChange={(e) => {
         const length = parseInt(e.target.value);
-        changeArrayLength(length);
+        setArrayLength(length);
       }}
     />
   );
