@@ -1,0 +1,8 @@
+.visualizer-canvas {
+  display: flex;
+  column-gap: 1px;
+
+  .bar {
+    flex: 1;
+  }
+}
