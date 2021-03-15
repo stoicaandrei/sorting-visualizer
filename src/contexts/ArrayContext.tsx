@@ -8,8 +8,8 @@ type State = {
 };
 
 type Actions = {
-  generateNewArray: () => void;
-  changeArrayLength: (arg0: number) => void;
+  generateArray: (arg0: number) => void;
+  setArrayLength: (arg0: number) => void;
   replaceArray: (args0: number[]) => void;
 };
 
@@ -26,12 +26,6 @@ const ArrayProvider: React.FC = ({ children }) => {
 
   const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
-  const changeArrayLength = (n: number) => {
-    setArrayLength(n);
-    generateArray(n);
-  };
-
-  const generateNewArray = () => generateArray(arrayLength);
   const replaceArray = (arr: number[]) => {
     // Replaces the array with a custom one
     setArray(arr);
@@ -41,7 +35,7 @@ const ArrayProvider: React.FC = ({ children }) => {
   return (
     <ArrayStateContext.Provider value={{ array, arrayLength }}>
       <ArrayActionsContext.Provider
-        value={{ changeArrayLength, generateNewArray, replaceArray }}
+        value={{ setArrayLength, generateArray, replaceArray }}
       >
         {children}
       </ArrayActionsContext.Provider>
