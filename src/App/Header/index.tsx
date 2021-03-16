@@ -2,13 +2,14 @@ import React from 'react';
 
 import { Button, Layout, Space } from 'antd';
 
+import PlayPauseButton from './PlayPauseButton';
 import FrequencySlider from './FrequencySlider';
 
 const Header: React.FC = () => {
   return (
     <Layout.Header>
       <Space>
-        <Button>Play</Button>
+        <PlayPauseButton />
         <Button> Generate New Array</Button>
         <Button>Custom Array</Button>
         <Button>Speed & Size</Button>
