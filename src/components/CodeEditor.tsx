@@ -18,6 +18,8 @@ const CodeEditor: React.FC<Props> = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       editorProps={{ $blockScrolling: true }}
+      width="100%"
+      height="100%"
     />
   );
 };
