@@ -17,9 +17,7 @@ const FrequencySlider: React.FC = () => {
         tipFormatter={(n) => `${n} ticks/sec`}
         min={1}
         max={120}
-        onChange={(n: number) => {
-          changeFrequency(n);
-        }}
+        onChange={changeFrequency}
       />
     </Space>
   );
