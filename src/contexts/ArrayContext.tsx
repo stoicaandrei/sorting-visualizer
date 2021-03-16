@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { generateArrayOfLength } from 'utils';
 
@@ -8,7 +8,7 @@ type State = {
 };
 
 type Actions = {
-  generateArray: (arg0: number) => void;
+  refreshArray: () => void;
   setArrayLength: (arg0: number) => void;
   replaceArray: (args0: number[]) => void;
 };
@@ -26,6 +26,12 @@ const ArrayProvider: React.FC = ({ children }) => {
 
   const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
+  useEffect(() => {
+    generateArray(arrayLength);
+  }, [arrayLength]);
+
+  const refreshArray = () => generateArray(arrayLength);
+
   const replaceArray = (arr: number[]) => {
     // Replaces the array with a custom one
     setArray(arr);
@@ -35,7 +41,7 @@ const ArrayProvider: React.FC = ({ children }) => {
   return (
     <ArrayStateContext.Provider value={{ array, arrayLength }}>
       <ArrayActionsContext.Provider
-        value={{ setArrayLength, generateArray, replaceArray }}
+        value={{ setArrayLength, refreshArray, replaceArray }}
       >
         {children}
       </ArrayActionsContext.Provider>
