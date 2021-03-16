@@ -5,18 +5,20 @@ import { ColorMapGenerator, SortingPoints } from 'types';
 import { colorMapToSortingPoints } from 'utils';
 
 import { useInterval } from 'hooks';
-import { useArrayState, useAlgorithmState } from 'contexts';
+import {
+  useArrayState,
+  useAlgorithmState,
+  useStatusState,
+  useStatusActions,
+} from 'contexts';
 
 type State = {
   array: number[];
   points: SortingPoints;
-  paused: boolean;
 };
 
 type Actions = {
   changeFrequency: (arg0: number) => void;
-  play: () => void;
-  pause: () => void;
 };
 
 const SortingStateContext = React.createContext<State | undefined>(undefined);
@@ -39,11 +41,11 @@ const SortingProvider: React.FC = ({ children }) => {
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
   const changeFrequency = (frequency: number) => setFrequency(frequency);
 
-  const [paused, setPaused] = useState(true);
+  const { paused } = useStatusState();
+  const { pause } = useStatusActions();
 
   const [points, setPoints] = useState({});
 
-  console.log(paused);
   const delay = paused ? 1 : 1_000_000;
   const interval = 1000 / (frequency * delay);
   useInterval(() => {
@@ -51,19 +53,16 @@ const SortingProvider: React.FC = ({ children }) => {
 
     const next = sortingSteps.next();
 
-    if (next.done) return setPaused(true);
+    if (next.done) return pause();
 
     const colorMap = next.value;
     const points = colorMapToSortingPoints(colorMap);
     setPoints(points);
   }, interval);
 
-  const play = () => setPaused(false);
-  const pause = () => setPaused(true);
-
   return (
-    <SortingStateContext.Provider value={{ array, points, paused }}>
-      <SortingActionsContext.Provider value={{ changeFrequency, play, pause }}>
+    <SortingStateContext.Provider value={{ array, points }}>
+      <SortingActionsContext.Provider value={{ changeFrequency }}>
         {children}
       </SortingActionsContext.Provider>
     </SortingStateContext.Provider>
