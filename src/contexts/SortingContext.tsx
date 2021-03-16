@@ -38,18 +38,23 @@ const SortingProvider: React.FC = ({ children }) => {
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
   const changeFrequency = (frequency: number) => setFrequency(frequency);
 
+  const [paused, setPaused] = useState(true);
+
   const [points, setPoints] = useState({});
+
+  const delay = paused ? 1 : 1_000_000;
+  const interval = 1000 / (frequency * delay);
   useInterval(() => {
     if (!sortingSteps) return;
 
     const next = sortingSteps.next();
 
-    if (next.done) return;
+    if (next.done) return setPaused(true);
 
     const colorMap = next.value;
     const points = colorMapToSortingPoints(colorMap);
     setPoints(points);
-  }, 1000 / (frequency * (sortingSteps ? 1 : 10000)));
+  }, interval);
 
   return (
     <SortingStateContext.Provider value={{ array, points }}>
