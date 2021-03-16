@@ -15,7 +15,8 @@ type State = {
 
 type Actions = {
   changeFrequency: (arg0: number) => void;
-  setPaused: (arg0: boolean) => void;
+  play: () => void;
+  pause: () => void;
 };
 
 const SortingStateContext = React.createContext<State | undefined>(undefined);
@@ -56,9 +57,12 @@ const SortingProvider: React.FC = ({ children }) => {
     setPoints(points);
   }, interval);
 
+  const play = () => setPaused(true);
+  const pause = () => setPaused(false);
+
   return (
     <SortingStateContext.Provider value={{ array, points, paused }}>
-      <SortingActionsContext.Provider value={{ changeFrequency, setPaused }}>
+      <SortingActionsContext.Provider value={{ changeFrequency, play, pause }}>
         {children}
       </SortingActionsContext.Provider>
     </SortingStateContext.Provider>
