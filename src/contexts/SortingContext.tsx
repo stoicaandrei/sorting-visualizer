@@ -33,9 +33,11 @@ const SortingProvider: React.FC = ({ children }) => {
   const { algorithm } = useAlgorithmState();
 
   const [sortingSteps, setSortingSteps] = useState<ColorMapGenerator>();
+  const [points, setPoints] = useState({});
 
   useEffect(() => {
     setSortingSteps(algorithm ? algorithm(array) : undefined);
+    setPoints({});
   }, [array, algorithm]);
 
   const [frequency, setFrequency] = useState(INITIAL_FREQUENCY);
@@ -43,8 +45,6 @@ const SortingProvider: React.FC = ({ children }) => {
 
   const { isPlaying } = useStatusState();
   const { finish } = useStatusActions();
-
-  const [points, setPoints] = useState({});
 
   const delay = isPlaying ? 1 : 1_000_000;
   const interval = 1000 / (frequency / delay);
