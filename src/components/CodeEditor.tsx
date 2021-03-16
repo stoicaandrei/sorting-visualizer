@@ -2,8 +2,8 @@ import React from 'react';
 
 import AceEditor from 'react-ace';
 
-import 'ace-builds/src-noconflict/mode-java';
-import 'ace-builds/src-noconflict/theme-github';
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-monokai';
 
 type Props = {
   value: string;
@@ -14,12 +14,21 @@ const CodeEditor: React.FC<Props> = ({ value, onChange }) => {
   return (
     <AceEditor
       mode="javascript"
-      theme="github"
+      theme="monokai"
       value={value}
       onChange={onChange}
-      editorProps={{ $blockScrolling: true }}
       width="100%"
-      height="100%"
+      height="80vh"
+      showPrintMargin
+      showGutter
+      highlightActiveLine
+      setOptions={{
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true,
+        enableSnippets: true,
+        showLineNumbers: true,
+        tabSize: 2,
+      }}
     />
   );
 };
