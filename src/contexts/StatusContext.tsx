@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 
-type State = unknown;
+type State = {
+  paused: boolean;
+};
 
-type Actions = unknown;
+type Actions = {
+  play: () => void;
+  pause: () => void;
+};
 
 const StatusStateContext = React.createContext<State | undefined>(undefined);
-const StatusActionsContext = React.createContext<Actions | undefined>(undefined);
+const StatusActionsContext = React.createContext<Actions | undefined>(
+  undefined
+);
 
 const StatusProvider: React.FC = ({ children }) => {
+  const [paused, setPaused] = useState(true);
+
+  const play = () => setPaused(false);
+  const pause = () => setPaused(true);
+
   return (
-    <StatusStateContext.Provider value={{}}>
-      <StatusActionsContext.Provider value={{}}>
+    <StatusStateContext.Provider value={{ paused }}>
+      <StatusActionsContext.Provider value={{ play, pause }}>
         {children}
       </StatusActionsContext.Provider>
     </StatusStateContext.Provider>
