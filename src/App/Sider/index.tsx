@@ -9,7 +9,7 @@ const Sider: React.FC = () => {
   return (
     <Layout.Sider collapsible collapsedWidth={0} width="40%">
       <AlgorithmSelector />
-      <AlgorithmEditor />/
+      <AlgorithmEditor />
     </Layout.Sider>
   );
 };
