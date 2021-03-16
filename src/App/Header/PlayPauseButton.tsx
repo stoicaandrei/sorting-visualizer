@@ -14,7 +14,7 @@ const PlayPauseButton: React.FC = () => {
         isPlaying ? pause() : play();
       }}
     >
-      {isPlaying ? 'Play' : 'Pause'}
+      {isPlaying ? 'Pause' : 'Play'}
     </Button>
   );
 };
