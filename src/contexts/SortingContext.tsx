@@ -43,6 +43,7 @@ const SortingProvider: React.FC = ({ children }) => {
 
   const [points, setPoints] = useState({});
 
+  console.log(paused);
   const delay = paused ? 1 : 1_000_000;
   const interval = 1000 / (frequency * delay);
   useInterval(() => {
@@ -57,8 +58,8 @@ const SortingProvider: React.FC = ({ children }) => {
     setPoints(points);
   }, interval);
 
-  const play = () => setPaused(true);
-  const pause = () => setPaused(false);
+  const play = () => setPaused(false);
+  const pause = () => setPaused(true);
 
   return (
     <SortingStateContext.Provider value={{ array, points, paused }}>
