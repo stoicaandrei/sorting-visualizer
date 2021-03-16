@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { useAlgorithmActions, useArrayActions } from 'contexts';
+
 type Status = 'paused' | 'playing' | 'finished';
 
 type State = {
@@ -19,13 +21,25 @@ const StatusActionsContext = React.createContext<Actions | undefined>(
 );
 
 const StatusProvider: React.FC = ({ children }) => {
-  const [status, setStatus] = useState<Status>('paused');
+  const { refreshArray } = useArrayActions();
+  const { compileAlgorithm } = useAlgorithmActions();
 
-  const play = () => setStatus('playing');
+  const [status, setStatus] = useState<Status>('finished');
+  const isPlaying = status === 'playing';
+  const isFinished = status === 'finished';
+
+  const resumePlaying = () => setStatus('playing');
+  const newGame = () => {
+    refreshArray();
+    compileAlgorithm();
+  };
+
+  const play = () => {
+    if (isFinished) newGame();
+    resumePlaying();
+  };
   const pause = () => setStatus('paused');
   const finish = () => setStatus('finished');
-
-  const isPlaying = status === 'playing';
 
   return (
     <StatusStateContext.Provider value={{ status, isPlaying }}>
