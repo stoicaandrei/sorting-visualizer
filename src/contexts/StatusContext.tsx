@@ -4,6 +4,7 @@ type Status = 'paused' | 'playing' | 'finished';
 
 type State = {
   status: Status;
+  isPlaying: boolean;
 };
 
 type Actions = {
@@ -24,8 +25,10 @@ const StatusProvider: React.FC = ({ children }) => {
   const pause = () => setStatus('paused');
   const finish = () => setStatus('finished');
 
+  const isPlaying = status === 'playing';
+
   return (
-    <StatusStateContext.Provider value={{ status }}>
+    <StatusStateContext.Provider value={{ status, isPlaying }}>
       <StatusActionsContext.Provider value={{ play, pause, finish }}>
         {children}
       </StatusActionsContext.Provider>
