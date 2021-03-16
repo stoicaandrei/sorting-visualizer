@@ -10,10 +10,12 @@ import { useArrayState, useAlgorithmState } from 'contexts';
 type State = {
   array: number[];
   points: SortingPoints;
+  paused: boolean;
 };
 
 type Actions = {
   changeFrequency: (arg0: number) => void;
+  setPaused: (arg0: boolean) => void;
 };
 
 const SortingStateContext = React.createContext<State | undefined>(undefined);
@@ -27,9 +29,7 @@ const SortingProvider: React.FC = ({ children }) => {
   const { array } = useArrayState();
   const { algorithm } = useAlgorithmState();
 
-  const [sortingSteps, setSortingSteps] = useState<
-    ColorMapGenerator | undefined
-  >();
+  const [sortingSteps, setSortingSteps] = useState<ColorMapGenerator>();
 
   useEffect(() => {
     setSortingSteps(algorithm ? algorithm(array) : undefined);
@@ -57,8 +57,8 @@ const SortingProvider: React.FC = ({ children }) => {
   }, interval);
 
   return (
-    <SortingStateContext.Provider value={{ array, points }}>
-      <SortingActionsContext.Provider value={{ changeFrequency }}>
+    <SortingStateContext.Provider value={{ array, points, paused }}>
+      <SortingActionsContext.Provider value={{ changeFrequency, setPaused }}>
         {children}
       </SortingActionsContext.Provider>
     </SortingStateContext.Provider>
