@@ -9,6 +9,7 @@ type State = {
 type Actions = {
   play: () => void;
   pause: () => void;
+  finish: () => void;
 };
 
 const StatusStateContext = React.createContext<State | undefined>(undefined);
@@ -21,10 +22,11 @@ const StatusProvider: React.FC = ({ children }) => {
 
   const play = () => setStatus('playing');
   const pause = () => setStatus('paused');
+  const finish = () => setStatus('finished');
 
   return (
     <StatusStateContext.Provider value={{ status }}>
-      <StatusActionsContext.Provider value={{ play, pause }}>
+      <StatusActionsContext.Provider value={{ play, pause, finish }}>
         {children}
       </StatusActionsContext.Provider>
     </StatusStateContext.Provider>
