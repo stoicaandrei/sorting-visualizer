@@ -1,21 +1,27 @@
 import React from 'react';
 
-import { Slider } from 'antd';
+import { Slider, Space } from 'antd';
 
-import { useSortingActions } from 'contexts';
+import { useSortingActions, useSortingState } from 'contexts';
 
 const FrequencySlider: React.FC = () => {
+  const { frequency } = useSortingState();
   const { changeFrequency } = useSortingActions();
 
   return (
-    <Slider
-      min={1}
-      max={120}
-      style={{ width: 200 }}
-      onChange={(n: number) => {
-        changeFrequency(n);
-      }}
-    />
+    <Space>
+      Speed
+      <Slider
+        className="frequency-slider"
+        value={frequency}
+        tipFormatter={(n) => `${n} ticks/sec`}
+        min={1}
+        max={120}
+        onChange={(n: number) => {
+          changeFrequency(n);
+        }}
+      />
+    </Space>
   );
 };
 

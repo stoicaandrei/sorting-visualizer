@@ -13,7 +13,6 @@ const Header: React.FC = () => {
         <PlayPauseButton />
         <RefreshArrayButton />
         <Button>Custom Array</Button>
-        <Button>Speed & Size</Button>
         <FrequencySlider />
       </Space>
     </Layout.Header>
