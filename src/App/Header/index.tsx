@@ -1,27 +1,19 @@
 import React from 'react';
 
-import { Layout, Menu } from 'antd';
+import { Button, Layout, Space } from 'antd';
 
-import { useArrayActions, useArrayState, useAlgorithmActions } from 'contexts';
+import FrequencySlider from './FrequencySlider';
 
 const Header: React.FC = () => {
-  const { arrayLength } = useArrayState();
-  const { generateArray } = useArrayActions();
-  const { compileAlgorithm } = useAlgorithmActions();
-
   return (
     <Layout.Header>
-      <Menu theme="dark" mode="horizontal" selectable={false}>
-        <>
-          <Menu.Item onClick={compileAlgorithm}>Play</Menu.Item>
-          <Menu.Item onClick={() => generateArray(arrayLength)}>
-            Generate New Array
-          </Menu.Item>
-
-          <Menu.Item disabled>Custom Array</Menu.Item>
-          <Menu.Item disabled>Speed & Size</Menu.Item>
-        </>
-      </Menu>
+      <Space>
+        <Button>Play</Button>
+        <Button> Generate New Array</Button>
+        <Button>Custom Array</Button>
+        <Button>Speed & Size</Button>
+        <FrequencySlider />
+      </Space>
     </Layout.Header>
   );
 };
