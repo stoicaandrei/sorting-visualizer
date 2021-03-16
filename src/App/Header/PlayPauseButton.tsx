@@ -5,16 +5,16 @@ import { Button } from 'antd';
 import { useStatusState, useStatusActions } from 'contexts';
 
 const PlayPauseButton: React.FC = () => {
-  const { status } = useStatusState();
+  const { isPlaying } = useStatusState();
   const { play, pause } = useStatusActions();
 
   return (
     <Button
       onClick={() => {
-        status != 'playing' ? play() : pause();
+        isPlaying ? pause() : play();
       }}
     >
-      {status == 'playing' ? 'Play' : 'Pause'}
+      {isPlaying ? 'Play' : 'Pause'}
     </Button>
   );
 };
