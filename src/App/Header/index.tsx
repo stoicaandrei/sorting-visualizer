@@ -4,6 +4,7 @@ import { Button, Layout, Space } from 'antd';
 
 import PlayPauseButton from './PlayPauseButton';
 import RefreshArrayButton from './RefreshArrayButton';
+import ArrayLengthSlider from './ArrayLengthSlider';
 import FrequencySlider from './FrequencySlider';
 
 const Header: React.FC = () => {
@@ -13,6 +14,7 @@ const Header: React.FC = () => {
         <PlayPauseButton />
         <RefreshArrayButton />
         <Button>Custom Array</Button>
+        <ArrayLengthSlider />
         <FrequencySlider />
       </Space>
     </Layout.Header>
