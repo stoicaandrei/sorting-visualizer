@@ -9,7 +9,11 @@ const AlgorithmSelector: React.FC = () => {
   const { selectAlgorithm } = useAlgorithmActions();
 
   return (
-    <Select value={selectedAlgorithm} onChange={selectAlgorithm}>
+    <Select
+      className="algorithm-selector"
+      value={selectedAlgorithm}
+      onChange={selectAlgorithm}
+    >
       {algorithmNames.map((name) => (
         <Select.Option value={name} key={name}>
           {name}
