@@ -3,6 +3,7 @@ import React from 'react';
 import { Select } from 'antd';
 
 import { useAlgorithmState, useAlgorithmActions } from 'contexts';
+import { camelCaseToCaseText } from '../../utils';
 
 const AlgorithmSelector: React.FC = () => {
   const { selectedAlgorithm, algorithmNames } = useAlgorithmState();
@@ -16,7 +17,7 @@ const AlgorithmSelector: React.FC = () => {
     >
       {algorithmNames.map((name) => (
         <Select.Option value={name} key={name}>
-          {name}
+          {camelCaseToCaseText(name)}
         </Select.Option>
       ))}
     </Select>
