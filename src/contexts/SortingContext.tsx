@@ -47,7 +47,7 @@ const SortingProvider: React.FC = ({ children }) => {
   const [points, setPoints] = useState({});
 
   const delay = isPlaying ? 1 : 1_000_000;
-  const interval = 1000 / (frequency * delay);
+  const interval = 1000 / (frequency / delay);
   useInterval(() => {
     if (!sortingSteps) return;
 
