@@ -1,19 +1,24 @@
-.ant-layout-sider {
+.ant-layout {
+  width: 100vw;
   height: 100vh;
 
-  .algorithm-selector {
-    width: 50%;
-  }
-}
+  .ant-layout-sider {
+    height: 100%;
 
-.ant-layout-header {
-  color: white;
-
-  .frequency-slider {
-    width: 150px;
+    .algorithm-selector {
+      width: 50%;
+    }
   }
 
-  .array-length-slider {
-    width: 150px;
+  .ant-layout-header {
+    color: white;
+
+    .frequency-slider {
+      width: 150px;
+    }
+
+    .array-length-slider {
+      width: 150px;
+    }
   }
 }
