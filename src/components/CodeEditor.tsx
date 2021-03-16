@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Editor from 'react-simple-code-editor';
-import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
+import AceEditor from 'react-ace';
+
+import 'ace-builds/src-noconflict/mode-java';
+import 'ace-builds/src-noconflict/theme-github';
 
 type Props = {
   value: string;
@@ -12,11 +12,12 @@ type Props = {
 
 const CodeEditor: React.FC<Props> = ({ value, onChange }) => {
   return (
-    <Editor
+    <AceEditor
+      mode="javascript"
+      theme="github"
       value={value}
-      onValueChange={onChange}
-      highlight={(code) => highlight(code, languages.js)}
-      className="code-editor"
+      onChange={onChange}
+      editorProps={{ $blockScrolling: true }}
     />
   );
 };
