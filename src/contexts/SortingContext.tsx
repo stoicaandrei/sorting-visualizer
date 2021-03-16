@@ -14,6 +14,7 @@ import {
 
 type State = {
   array: number[];
+  frequency: number;
   points: SortingPoints;
 };
 
@@ -61,7 +62,7 @@ const SortingProvider: React.FC = ({ children }) => {
   }, interval);
 
   return (
-    <SortingStateContext.Provider value={{ array, points }}>
+    <SortingStateContext.Provider value={{ array, points, frequency }}>
       <SortingActionsContext.Provider value={{ changeFrequency }}>
         {children}
       </SortingActionsContext.Provider>
