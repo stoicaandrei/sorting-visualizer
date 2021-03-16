@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
+type Status = 'paused' | 'playing' | 'finished';
+
 type State = {
-  paused: boolean;
+  status: Status;
 };
 
 type Actions = {
@@ -15,13 +17,13 @@ const StatusActionsContext = React.createContext<Actions | undefined>(
 );
 
 const StatusProvider: React.FC = ({ children }) => {
-  const [paused, setPaused] = useState(true);
+  const [status, setStatus] = useState<Status>('paused');
 
-  const play = () => setPaused(false);
-  const pause = () => setPaused(true);
+  const play = () => setStatus('playing');
+  const pause = () => setStatus('paused');
 
   return (
-    <StatusStateContext.Provider value={{ paused }}>
+    <StatusStateContext.Provider value={{ status }}>
       <StatusActionsContext.Provider value={{ play, pause }}>
         {children}
       </StatusActionsContext.Provider>
