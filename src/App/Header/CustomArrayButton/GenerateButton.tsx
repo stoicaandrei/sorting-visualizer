@@ -2,13 +2,18 @@ import React from 'react';
 
 import { Button } from 'antd';
 
-import { useArrayActions } from 'contexts';
+import { useArrayState, useArrayActions } from 'contexts';
 
 const GenerateButton: React.FC = () => {
+  const { validCustomArrayString } = useArrayState();
   const { replaceArray } = useArrayActions();
 
   return (
-    <Button type="primary" onClick={replaceArray}>
+    <Button
+      type="primary"
+      onClick={replaceArray}
+      disabled={!validCustomArrayString}
+    >
       Generate
     </Button>
   );
