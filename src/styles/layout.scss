@@ -5,6 +5,10 @@
   .ant-layout-sider {
     height: 100%;
 
+    .ant-layout-sider-zero-width-trigger {
+      top: 50%;
+    }
+
     .algorithm-selector {
       width: 50%;
     }
