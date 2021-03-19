@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Layout, Space } from 'antd';
+import { Layout, Space } from 'antd';
 
 import PlayPauseButton from './PlayPauseButton';
 import RefreshArrayButton from './RefreshArrayButton';
