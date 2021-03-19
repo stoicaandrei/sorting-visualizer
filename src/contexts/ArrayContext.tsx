@@ -11,7 +11,7 @@ type State = {
 type Actions = {
   refreshArray: () => void;
   setArrayLength: (arg0: number) => void;
-  replaceArray: (args0: number[]) => void;
+  replaceArray: () => void;
   setCustomArrayString: (args0: string) => void;
 };
 
