@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useSortingState } from 'contexts';
 
-import ArrayCanvas from './ArrayCanvas';
+import { ArrayCanvas } from 'components';
 
 const Visualizer: React.FC = () => {
   const { array, points } = useSortingState();

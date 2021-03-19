@@ -1,2 +1,2 @@
-export { default as Visualizer } from './Visualizer';
 export { default as CodeEditor } from './CodeEditor';
+export { default as ArrayCanvas } from './ArrayCanvas';

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Layout } from 'antd';
 
-import { Visualizer } from 'components';
+import Visualizer from './Visualizer';
 
 const Content: React.FC = () => {
   return (
