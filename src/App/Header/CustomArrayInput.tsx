@@ -9,7 +9,9 @@ const CustomArrayInput: React.FC = () => {
   const { setCustomArrayString } = useArrayActions();
 
   return (
-    <Input
+    <Input.TextArea
+      rows={4}
+      placeholder="1,2,3,4,5,6"
       value={customArrayString}
       onChange={(e) => {
         const val = e.target.value;
