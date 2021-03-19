@@ -14,7 +14,7 @@ const ArrayLengthSlider: React.FC = () => {
       <Slider
         className="array-length-slider"
         value={arrayLength}
-        min={20}
+        min={0}
         max={300}
         onChange={setArrayLength}
       />
