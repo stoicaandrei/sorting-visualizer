@@ -5,12 +5,14 @@ import { generateArrayOfLength } from 'utils';
 type State = {
   array: number[];
   arrayLength: number;
+  customArrayString: string;
 };
 
 type Actions = {
   refreshArray: () => void;
   setArrayLength: (arg0: number) => void;
   replaceArray: (args0: number[]) => void;
+  setCustomArrayString: (args0: string) => void;
 };
 
 const ArrayStateContext = React.createContext<State | undefined>(undefined);
@@ -24,6 +26,8 @@ const ArrayProvider: React.FC = ({ children }) => {
   const [arrayLength, setArrayLength] = useState(INITIAL_LENGTH);
   const [array, setArray] = useState(INITIAL_ARRAY);
 
+  const [customArrayString, setCustomArrayString] = useState('');
+
   const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
   useEffect(() => {
@@ -32,16 +36,24 @@ const ArrayProvider: React.FC = ({ children }) => {
 
   const refreshArray = () => generateArray(arrayLength);
 
-  const replaceArray = (arr: number[]) => {
+  const replaceArray = () => {
     // Replaces the array with a custom one
+    const arr = customArrayString.split(',').map((el) => parseInt(el));
     setArray(arr);
     setArrayLength(arr.length);
   };
 
   return (
-    <ArrayStateContext.Provider value={{ array, arrayLength }}>
+    <ArrayStateContext.Provider
+      value={{ array, arrayLength, customArrayString }}
+    >
       <ArrayActionsContext.Provider
-        value={{ setArrayLength, refreshArray, replaceArray }}
+        value={{
+          setArrayLength,
+          refreshArray,
+          replaceArray,
+          setCustomArrayString,
+        }}
       >
         {children}
       </ArrayActionsContext.Provider>
