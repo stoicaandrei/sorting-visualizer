@@ -3,6 +3,7 @@ import React from 'react';
 import { Modal } from 'antd';
 
 import CustomArrayInput from './CustomArrayInput';
+import CustomArrayGenerate from './CustomArrayGenerate';
 
 type Props = {
   visible: boolean;
@@ -14,7 +15,7 @@ const CustomArrayModal: React.FC<Props> = ({ visible, hide }) => {
     <Modal
       visible={visible}
       onCancel={hide}
-      footer={null}
+      footer={<CustomArrayGenerate />}
       title="Enter custom Array"
     >
       <CustomArrayInput />

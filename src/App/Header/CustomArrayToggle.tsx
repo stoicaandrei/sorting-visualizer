@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EditOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 
 import CustomArrayModal from './CustomArrayModal';
 
@@ -11,7 +11,7 @@ const CustomArrayToggle: React.FC = () => {
 
   return (
     <>
-      <EditOutlined onClick={toggle} />
+      <Button onClick={toggle}>Custom Array</Button>
       <CustomArrayModal visible={isShowing} hide={toggle} />
     </>
   );
