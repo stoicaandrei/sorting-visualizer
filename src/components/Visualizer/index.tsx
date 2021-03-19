@@ -7,11 +7,7 @@ import ArrayCanvas from './ArrayCanvas';
 const Visualizer: React.FC = () => {
   const { array, points } = useSortingState();
 
-  return (
-    <div>
-      <ArrayCanvas array={array} points={points} />
-    </div>
-  );
+  return <ArrayCanvas array={array} points={points} />;
 };
 
 export default Visualizer;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-  height: number;
+  height: number | string;
   color?: string;
 };
 
