@@ -28,7 +28,7 @@ const ArrayProvider: React.FC = ({ children }) => {
   const [array, setArray] = useState(INITIAL_ARRAY);
 
   const [customArrayString, setCustomArrayString] = useState('');
-  const validCustomArrayString = !!customArrayString.match(/^(\d+,)+\d+$/);
+  const validCustomArrayString = !!customArrayString.match(/^(\d+\s*,\s*)+\d+\s*$/);
 
   const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
