@@ -6,7 +6,7 @@ import CustomArrayModal from './CustomArrayModal';
 
 import { useModal } from 'hooks';
 
-const CustomArrayToggle: React.FC = () => {
+const CustomArrayButton: React.FC = () => {
   const { isShowing, toggle } = useModal();
 
   return (
@@ -17,4 +17,4 @@ const CustomArrayToggle: React.FC = () => {
   );
 };
 
-export default CustomArrayToggle;
+export default CustomArrayButton;
