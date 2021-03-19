@@ -6,10 +6,14 @@ import PlayPauseButton from './PlayPauseButton';
 import RefreshArrayButton from './RefreshArrayButton';
 import ArrayLengthSlider from './ArrayLengthSlider';
 import FrequencySlider from './FrequencySlider';
-import CustomArrayInput from './CustomArrayInput';
 import CustomArrayButton from './CustomArrayButton';
+import CustomArrayModal from './CustomArrayModal';
+
+import { useModal } from 'hooks';
 
 const Header: React.FC = () => {
+  const { isShowing, toggle } = useModal();
+
   return (
     <Layout.Header>
       <Space>
@@ -18,7 +22,8 @@ const Header: React.FC = () => {
         <CustomArrayButton />
         <ArrayLengthSlider />
         <FrequencySlider />
-        <CustomArrayInput />
+        <Button onClick={toggle}>Show modal</Button>
+        <CustomArrayModal visible={isShowing} hide={toggle} />
       </Space>
     </Layout.Header>
   );
