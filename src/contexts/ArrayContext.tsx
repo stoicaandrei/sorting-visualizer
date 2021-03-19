@@ -6,6 +6,7 @@ type State = {
   array: number[];
   arrayLength: number;
   customArrayString: string;
+  validCustomArrayString: boolean;
 };
 
 type Actions = {
@@ -27,6 +28,7 @@ const ArrayProvider: React.FC = ({ children }) => {
   const [array, setArray] = useState(INITIAL_ARRAY);
 
   const [customArrayString, setCustomArrayString] = useState('');
+  const validCustomArrayString = !!customArrayString.match(/^(\d+,)+\d+$/);
 
   const generateArray = (n: number) => setArray(generateArrayOfLength(n));
 
@@ -45,7 +47,7 @@ const ArrayProvider: React.FC = ({ children }) => {
 
   return (
     <ArrayStateContext.Provider
-      value={{ array, arrayLength, customArrayString }}
+      value={{ array, arrayLength, customArrayString, validCustomArrayString }}
     >
       <ArrayActionsContext.Provider
         value={{
