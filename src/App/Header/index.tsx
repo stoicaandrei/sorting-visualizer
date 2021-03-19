@@ -7,6 +7,7 @@ import RefreshArrayButton from './RefreshArrayButton';
 import ArrayLengthSlider from './ArrayLengthSlider';
 import FrequencySlider from './FrequencySlider';
 import CustomArrayInput from './CustomArrayInput';
+import CustomArrayButton from './CustomArrayButton';
 
 const Header: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const Header: React.FC = () => {
       <Space>
         <PlayPauseButton />
         <RefreshArrayButton />
-        <Button disabled>Custom Array</Button>
+        <CustomArrayButton />
         <ArrayLengthSlider />
         <FrequencySlider />
         <CustomArrayInput />
