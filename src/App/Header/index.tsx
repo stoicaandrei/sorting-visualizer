@@ -11,7 +11,7 @@ import CustomArrayButton from './CustomArrayButton';
 const Header: React.FC = () => {
   return (
     <Layout.Header>
-      <Space>
+      <Space wrap>
         <PlayPauseButton />
         <RefreshArrayButton />
         <CustomArrayButton />
