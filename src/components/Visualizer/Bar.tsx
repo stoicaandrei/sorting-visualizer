@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   height: number;
-  color: string;
+  color?: string;
 };
 
 const Bar: React.FC<Props> = ({ height, color }) => {

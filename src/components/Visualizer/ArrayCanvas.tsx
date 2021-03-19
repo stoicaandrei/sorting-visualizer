@@ -14,7 +14,6 @@ type Props = {
 const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
   const canvasHeight = 600;
   const minBarHeight = 10;
-  const barColor = 'blue';
 
   const minVal = Math.min(...array);
   const maxVal = Math.max(...array);
@@ -32,11 +31,7 @@ const ArrayCanvas: React.FC<Props> = ({ array, points }) => {
       }}
     >
       {array.map((nr, index) => (
-        <Bar
-          key={nr}
-          height={heightMapper(nr)}
-          color={points[index] || barColor}
-        />
+        <Bar key={nr} height={heightMapper(nr)} color={points[index]} />
       ))}
     </div>
   );
