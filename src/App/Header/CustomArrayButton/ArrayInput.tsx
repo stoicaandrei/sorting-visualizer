@@ -4,7 +4,7 @@ import { Input } from 'antd';
 
 import { useArrayState, useArrayActions } from 'contexts';
 
-const CustomArrayInput: React.FC = () => {
+const ArrayInput: React.FC = () => {
   const { customArrayString } = useArrayState();
   const { setCustomArrayString } = useArrayActions();
 
@@ -21,4 +21,4 @@ const CustomArrayInput: React.FC = () => {
   );
 };
 
-export default CustomArrayInput;
+export default ArrayInput;

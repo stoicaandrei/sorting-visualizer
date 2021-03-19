@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from 'antd';
 
-import CustomArrayModal from './CustomArrayModal';
+import ArrayModal from './ArrayModal';
 
 import { useModal } from 'hooks';
 
@@ -12,7 +12,7 @@ const CustomArrayButton: React.FC = () => {
   return (
     <>
       <Button onClick={toggle}>Custom Array</Button>
-      <CustomArrayModal visible={isShowing} hide={toggle} />
+      <ArrayModal visible={isShowing} hide={toggle} />
     </>
   );
 };

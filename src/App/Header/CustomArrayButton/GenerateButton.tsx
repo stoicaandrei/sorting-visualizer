@@ -4,7 +4,7 @@ import { Button } from 'antd';
 
 import { useArrayActions } from 'contexts';
 
-const CustomArrayGenerate: React.FC = () => {
+const GenerateButton: React.FC = () => {
   const { replaceArray } = useArrayActions();
 
   return (
@@ -14,4 +14,4 @@ const CustomArrayGenerate: React.FC = () => {
   );
 };
 
-export default CustomArrayGenerate;
+export default GenerateButton;
