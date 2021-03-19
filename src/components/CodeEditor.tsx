@@ -18,7 +18,7 @@ const CodeEditor: React.FC<Props> = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       width="100%"
-      height="80vh"
+      height="87vh"
       showPrintMargin
       showGutter
       highlightActiveLine
