@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import * as algorithms from 'algorithms';
 import { SortingFunction } from 'types';
@@ -42,6 +42,8 @@ const AlgorithmProvider: React.FC = ({ children }) => {
     eval(algorithmString);
     setAlgorithm(() => sortingAlgorithm);
   };
+
+  useEffect(compileAlgorithm, [selectedAlgorithm]);
 
   return (
     <AlgorithmStateContext.Provider
