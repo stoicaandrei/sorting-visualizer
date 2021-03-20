@@ -47,8 +47,9 @@ const SortingProvider: React.FC = ({ children }) => {
   const { isPlaying } = useStatusState();
   const { finish } = useStatusActions();
 
-  const delay = isPlaying ? 1 : 1_000_000;
-  const interval = 1000 / (frequency / delay);
+  let interval: number | null = 1000 / frequency;
+  if (!isPlaying) interval = null;
+
   useInterval(() => {
     if (!sortingSteps) return;
 
