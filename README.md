@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">A cool sorting visualizer where you can play with the algorithms. <a href="https://stoica.dev/sorting-visualizer/">Demo here</a></h4>
+<h4 align="center">A cool sorting visualizer where you can edit the algorithms. <a href="https://stoica.dev/sorting-visualizer/">Demo here</a></h4>
 
 <p align="center">
   <a href="#features">Features</a> •
