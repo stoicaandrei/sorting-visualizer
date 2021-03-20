@@ -48,9 +48,9 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 This webapp uses the following open source packages:
 
 - [Node.js](https://nodejs.org/)
-- [React FC & Context](https://reactjs.org/)
+- [React (FC & Context)](https://reactjs.org/)
 - [Ant Design](https://ant.design/)
-- [React-Ace](https://github.com/securingsincity/react-ace)
+- [React-Ace (Code Editor)](https://github.com/securingsincity/react-ace)
 
 ## License
 
